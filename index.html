@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+  </head>
+  <body>
+    <h1>Start watching your file</h1>
+    <form action="#">
+      <input type="file" name="file" id="input">
+      <input type="submit" value="Envoyer" id="submit">
+      <!-- <button>Stop watching</button> -->
+    </form>
+  </body>
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+    const dropbox = require('./dropbox.js')
+
+    var submit = document.getElementById("submit")
+
+    submit.addEventListener('click', () => {
+      var start = true
+      var input = document.getElementById("input").files[0].path
+
+      var file = input.substring(input.lastIndexOf('/')+1, input.lenght)
+      var file_format = file.substring(file.lastIndexOf('.'), file.lenght)
+      var file_name = file.substring(0, file.lastIndexOf('.'))
+
+      dropbox.init(input, file_name, file_format)
+    })
+
+  </script>
+</html>
