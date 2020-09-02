@@ -22,7 +22,7 @@
   "dependencies": {
     "electron-stream": "^5.0.4",
     "google-auth-library": "^0.10.0",
-    "googleapis": "^19.0.0",
+    "googleapis": "^59.0.0",
     "request": "^2.81.0"
   }
 }
